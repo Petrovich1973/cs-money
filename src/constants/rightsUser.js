@@ -1,0 +1,1 @@
+export const GUEST_RIGHT = 'GUEST_RIGHT';
