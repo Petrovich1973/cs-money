@@ -1,0 +1,53 @@
+// offcanvas.scss
+
+.dot {
+  display: inline-block;
+  width: .4rem;
+  height: .4rem;
+  border-radius: 100%;
+}
+
+.links {
+  margin: 0 1rem;
+  .nav-item {
+    padding: 0 .5rem;
+    .nav-link {
+      display: flex;
+      align-items: center;
+      & > * + * {
+        margin-left: .5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1220px) {
+  .navbar-collapse:not(.show) {
+    .links .nav-link span {
+      display: none;
+    }
+  }
+}
+
+.navbar-right {
+  padding: 0;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  .balance, .pay, .social {
+    & > * + * {
+      margin-left: .5rem;
+    }
+  }
+  .profile {
+    display: inherit;
+    align-items: inherit;
+    & > * + * {
+      margin-left: 1rem;
+    }
+    img {
+      margin-top: -1rem;
+      margin-bottom: -1rem;
+    }
+  }
+}

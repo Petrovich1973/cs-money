@@ -1,37 +1,35 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React from 'react'
+import {connect} from 'react-redux'
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Wizard from "./components/Wizard";
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import Wizard from "./components/Wizard"
 
-import {actionTypes as types, app_name} from './constants';
+import {actionTypes as types, app_name} from './constants'
 
 const App = (props) => {
 
-    console.log(props)
-    const handleChangeCurrent = () => {
+    const handleChangeCurrent = step => {
         props.dispatch({
             type: types.APP_UPDATE,
             payload: {
-                currentStep: 22222222
+                currentStep: step
             }
         })
     }
+
+    const {currentStep, stepsNav} = props.app
 
     return (
         <React.Fragment>
 
             <Header/>
 
-            <section id={'content'}>
+            <main>
 
-                <Wizard>
-                    <p>{app_name} — {props.app.currentStep}</p>
-                    <button onClick={handleChangeCurrent}>action</button>
-                </Wizard>
+                <Wizard {...{current: currentStep, stepsNav, onClcik: handleChangeCurrent}}/>
 
-            </section>
+            </main>
 
             <Footer/>
 
@@ -42,5 +40,5 @@ const App = (props) => {
 export default connect(store => {
     return {
         app: store.app,
-    };
+    }
 })(App);
