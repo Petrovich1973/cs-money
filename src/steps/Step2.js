@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Step2 = () => (
+const Step2 = ({stepsNav: {label = 'empty'}}) => (
     <div className={'step step-simple'}>
-        <h2>Введите ссылку на обмен</h2>
+        <h2>{label}</h2>
         <div className="input-group mb-3" style={{maxWidth: '800px'}}>
             <div className="input-group-prepend">
                 <span className="input-group-text">ссылка на обмен</span>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => (
     <footer className="navbar navbar-expand navbar-light bg-light text-dark">
-        <a className="navbar-brand mr-auto mr-lg-0" href="/">CS <span className="bg-danger dot"/> MONEY</a>
+        <a className="navbar-brand mr-auto mr-lg-0" href="/">LOGO <span className="bg-danger dot"/> TYPE</a>
         <ul className="navbar-nav mr-auto links">
             <li className="nav-item">
                 <a className="nav-link" href="/">Условия использования</a>

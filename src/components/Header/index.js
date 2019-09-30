@@ -1,14 +1,15 @@
 import React, {useState} from 'react'
 import classNames from 'classnames'
 
-const Header = () => {
+const Header = ({title = ''}) => {
 
     const [collapse, setCollapse] = useState(false)
 
     return (
         <header>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark text-light">
-                <a className="navbar-brand mr-auto mr-lg-0" href="/">CS <span className="bg-danger dot"/> MONEY</a>
+                <a title={title} className="navbar-brand mr-auto mr-lg-0" href="/">LOGO <span
+                    className="bg-danger dot"/> TYPE</a>
                 <button className="navbar-toggler p-0 border-0" type="button"
                         onClick={() => setCollapse(!collapse)}>
                     <span className="navbar-toggler-icon"/>
@@ -38,7 +39,8 @@ const Header = () => {
                             </li>
                             <li className="nav-link profile">
                                 <span>minin-deniska@gmail.com</span>
-                                <img width={40} height={40} src={imgGrey} className="rounded-circle" alt="Minin Deniska"/>
+                                <img width={40} height={40} src={imgGrey} className="rounded-circle"
+                                     alt="Minin Deniska"/>
                             </li>
                             <li className="nav-link">
                                 <a href="/">Log out</a>
@@ -53,7 +55,6 @@ const Header = () => {
 }
 
 export default Header
-
 
 
 const imgGrey = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAIAAAD/

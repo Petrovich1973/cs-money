@@ -18,16 +18,34 @@ const App = (props) => {
         })
     }
 
-    const {currentStep, stepsNav} = props.app
+    const onClickSkin = skin => {
+        alert('еще не реализовано!')
+        // props.dispatch({
+        //     type: types.APP_UPDATE,
+        //     payload: {
+        //         currentStep: skin
+        //     }
+        // })
+    }
+
+    const {currentStep, stepsNav, sizeSkin, selectYou, selectBot} = props.app
 
     return (
         <React.Fragment>
 
-            <Header/>
+            <Header title={app_name}/>
 
             <main>
 
-                <Wizard {...{current: currentStep, stepsNav, onClcik: handleChangeCurrent}}/>
+                <Wizard {...{
+                    current: currentStep,
+                    sizeSkin,
+                    selectYou,
+                    selectBot,
+                    stepsNav,
+                    onClick: handleChangeCurrent,
+                    onClickSkin: onClickSkin
+                }}/>
 
             </main>
 
