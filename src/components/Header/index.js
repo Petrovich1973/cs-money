@@ -21,7 +21,7 @@ const Header = ({title = ''}) => {
                             <a className="nav-link" href="/"><i className="fa fa-bell-o"/><span>Release notes</span></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/"><i className="fa fa-wheelchair"/><span>F.A.Q.</span></a>
+                            <a className="nav-link" href="/"><i className="fa fa-question-circle-o"/><span>F.A.Q.</span></a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/"><i className="fa fa-user-o"/><span>You profile</span></a>

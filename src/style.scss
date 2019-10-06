@@ -69,6 +69,16 @@ body {
       span {
         line-height: .8;
         display: block;
+        font-size: 66%;
+      }
+      .controls-btn {
+        display: flex;
+        padding: .3rem 0;
+        justify-content: space-between;
+        button {
+          display: block;
+          padding: .3rem;
+        }
       }
     }
     .step {
@@ -94,7 +104,7 @@ body {
       flex-direction: column;
       justify-content: stretch;
       align-content: flex-start;
-      min-width: 210px;
+      min-width: 220px;
       & > * {
         display: flex;
         flex-direction: column;
@@ -140,6 +150,43 @@ body {
   .wizard-nav-bottom {
     display: flex;
     justify-content: space-between;
+  }
+}
+
+.check-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0;
+  & > * {
+    display: inherit;
+    justify-content: flex-start;
+    align-items: center;
+    & > * + * {
+      margin-left: .5rem;
+    }
+  }
+}
+
+.list-box {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  & > * {
+    display: inherit;
+    justify-content: flex-start;
+    align-items: center;
+    padding: .5rem 0;
+    & > * + * {
+      margin-left: .5rem;
+    }
+    i.fa {
+      min-width: 1.4rem;
+      text-align: center;
+    }
+    & + * {
+      border-top: 1px dotted #ccc;
+    }
   }
 }
 

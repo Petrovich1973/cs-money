@@ -8,7 +8,7 @@ import Step5 from "../../steps/Step5"
 import Filter from "../Filter";
 import List from "../List";
 
-const Wizard = ({current = 0, stepsNav = {}, selectYou, selectBot, sizeSkin, onClick, onClickSkin}) => {
+const Wizard = ({current = 0, stepsNav = {}, selectYou, selectBot, sizeSkin, onClick, onClickSkin, onWithdraw}) => {
 
     const steps = [
         Step1,
@@ -32,11 +32,20 @@ const Wizard = ({current = 0, stepsNav = {}, selectYou, selectBot, sizeSkin, onC
                 {React.createElement(steps[current], {stepsNav: stepsNav[current], sizeSkin, onClickSkin})}
                 {visibleElementsSide ? <div className="selected">
                     <div className="selected-you">
-                        <h4><span>Выбранные скины твои</span></h4>
+                        <h4>
+                            <span>Выбранные скины твои</span>
+                            <span className="controls-btn">
+                                <button>Продать</button>
+                                <button onClick={onWithdraw}>Вывести</button>
+                            </span>
+                        </h4>
                         <List {...{skins: selectYou, onClickSkin}}/>
                     </div>
                     <div className="selected-bot">
-                        <h4><span>Выбранные скины бота</span></h4>
+                        <h4>
+                            <span>Выбранные скины бота</span>
+                            <span className="controls-btn"><button>Купить</button><button>Обменять</button></span>
+                        </h4>
                         <List {...{skins: selectBot, onClickSkin}}/>
                     </div>
                 </div> : null}

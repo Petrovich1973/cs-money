@@ -5,6 +5,9 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Wizard from "./components/Wizard"
 
+import Dialog from "./components/Dialog";
+import Withdraw from "./components/Withdraw";
+
 import {actionTypes as types, app_name} from './constants'
 
 const App = (props) => {
@@ -28,7 +31,23 @@ const App = (props) => {
         // })
     }
 
-    const {currentStep, stepsNav, sizeSkin, selectYou, selectBot} = props.app
+    const onWithdraw = () => {
+        const {modals} = props.app
+        const modal = {
+            title: 'ОЖИДАНИЕ ОБМЕНА',
+            content: <Withdraw/>
+        }
+        const newModals = modals.concat(modal)
+
+        props.dispatch({
+            type: types.APP_UPDATE,
+            payload: {
+                modals: newModals
+            }
+        })
+    }
+
+    const {currentStep, stepsNav, sizeSkin, selectYou, selectBot, modals} = props.app
 
     return (
         <React.Fragment>
@@ -44,12 +63,19 @@ const App = (props) => {
                     selectBot,
                     stepsNav,
                     onClick: handleChangeCurrent,
-                    onClickSkin: onClickSkin
+                    onClickSkin: onClickSkin,
+                    onWithdraw: onWithdraw
                 }}/>
 
             </main>
 
             <Footer/>
+
+            {modals.length
+                ? <div style={{position: 'absolute', zIndex: 1000}}>
+                    {modals.map((dialog, idx) => <Dialog title={dialog.title} key={idx}>{dialog.content}</Dialog>)}
+                </div>
+                : null}
 
         </React.Fragment>
     );
