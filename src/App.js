@@ -31,11 +31,15 @@ const App = (props) => {
         // })
     }
 
+    const onTest = () => {
+        console.log('onTest')
+    }
+
     const onWithdraw = () => {
         const {modals} = props.app
         const modal = {
             title: 'ОЖИДАНИЕ ОБМЕНА',
-            content: <Withdraw/>
+            content: <Withdraw onTest={onTest}/>
         }
         const newModals = modals.concat(modal)
 
@@ -43,6 +47,17 @@ const App = (props) => {
             type: types.APP_UPDATE,
             payload: {
                 modals: newModals
+            }
+        })
+    }
+
+    const onCloseModal = (idx) => {
+        const {modals} = props.app
+
+        props.dispatch({
+            type: types.APP_UPDATE,
+            payload: {
+                modals: modals.filter((el, i) => i !== idx)
             }
         })
     }
@@ -73,7 +88,13 @@ const App = (props) => {
 
             {modals.length
                 ? <div style={{position: 'absolute', zIndex: 1000}}>
-                    {modals.map((dialog, idx) => <Dialog title={dialog.title} key={idx}>{dialog.content}</Dialog>)}
+                    {modals.map((dialog, idx) => <Dialog
+                        title={dialog.title}
+                        key={idx}
+                        idx={idx}
+                    onCloseModal={onCloseModal}>
+                        {dialog.content}
+                    </Dialog>)}
                 </div>
                 : null}
 
